@@ -3,10 +3,17 @@ package rarejackalope.chapter6.examples;
 public class ErrMsg {
 
 	public static void main(String[] args) {
-		ErrorMsg err = new ErrorMsg();
-		System.out.println(err.getErrorMsg(2));
-		System.out.println(err.getErrorMsg(39));
+		ErrInfo e = new ErrInfo();
+		ErrorMsg err;
+		
 
+		err = e.getErrInfo(1);
+		System.out.println(err.msg +" " + err.severity);
+		
+		err = e.getErrInfo(3);
+		System.out.println(err.msg +" " + err.severity);
+		
+		
 	}
 
 }
