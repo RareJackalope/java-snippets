@@ -1,22 +1,12 @@
 package rarejackalope.chapter6.examples;
 
 public class ErrorMsg {
-	String msgs[] = {
-			"Output Error",
-			"Input Error",
-			"Disk Full",
-			"Index Out-of-Bounds"
-	};
+	String msg;
+	int severity;
 	
-	String getErrorMsg(int i)
-	{	
-		if(i >= 0 & i < msgs.length)
-		{
-			return msgs[i];
-		}
-		else
-		{
-			return "Invalid Error Message";
-		}		
+	public ErrorMsg(String msg, int severity)
+	{
+		this.msg = msg;
+		this.severity = severity;
 	}
 }
