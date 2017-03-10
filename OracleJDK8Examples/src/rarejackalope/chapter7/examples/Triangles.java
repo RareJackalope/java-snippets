@@ -6,7 +6,7 @@ public class Triangles extends TwoDShape
 	Triangles()
 	{
 		super();
-		style = "unknown";
+		style = "filled";
 	}
 	
 	Triangles(int width, int height, String style)
@@ -20,7 +20,25 @@ public class Triangles extends TwoDShape
 		super(length);
 		this.style = style;
 	}
+	Triangles(int length)
+	{
+		super(length);
+		this.style = "filled";
+	}
 	
+	Triangles(Triangles ob)
+	{
+		super(ob);
+		style = ob.style;
+	}
 	
+	public String getStyle() {
+		return style;
+	}
+	
+	public int getArea()
+	{
+		return getHeight() * getWidth() / 2;
+	}
 	
 }

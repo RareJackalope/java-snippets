@@ -18,6 +18,12 @@ public class TwoDShape {
 		height = width = 0;
 	}
 	
+	public TwoDShape(TwoDShape ob) 
+	{
+		height = ob.height;
+		width = ob.width;
+	}
+
 	public int getHeight() {
 		return height;
 	}
@@ -34,13 +40,9 @@ public class TwoDShape {
 		this.height = height;
 	}
 	
-	public void showDims()
+	public String showDims()
 	{
-		System.out.println("has height " + height + " and width " +width);
+		return "has height " + height + " and width " +width;
 	}
 	
-	public void area()
-	{
-		area = height * width;
-	}
 }
