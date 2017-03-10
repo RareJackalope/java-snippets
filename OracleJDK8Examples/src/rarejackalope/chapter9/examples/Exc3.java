@@ -21,6 +21,7 @@ public class Exc3
 			catch(ArrayIndexOutOfBoundsException exc)
 			{
 				System.out.println("No matching element found.");
+				throw exc;
 			}
 		}
 	}
