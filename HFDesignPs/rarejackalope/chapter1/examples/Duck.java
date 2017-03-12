@@ -2,20 +2,23 @@ package rarejackalope.chapter1.examples;
 
 public abstract class Duck 
 {
-	public static void quack()
+	FlyBehaviour flybehaviour;
+	QuackBehaviour quackbehaviour;
+	
+	public void performQuack()
 	{
-		System.out.println("Quack");
+		quackbehaviour.quack();
 	}
 	
-	public static void swim()
+	public void swim()
 	{
 		System.out.println("Much swim.");
 	}
 	
 	public abstract void display();
 	
-	public static void fly()
+	public void performFly()
 	{
-		System.out.println("Its flying!"); //Joe adds flying functionality to the superclass for all ducks to inherit.
+		flybehaviour.fly();
 	}
 }
