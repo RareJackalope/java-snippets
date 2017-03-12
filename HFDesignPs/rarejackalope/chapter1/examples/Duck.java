@@ -13,5 +13,9 @@ public abstract class Duck
 	}
 	
 	public abstract void display();
-
+	
+	public static void fly()
+	{
+		System.out.println("Its flying!"); //Joe adds flying functionality to the superclass for all ducks to inherit.
+	}
 }
