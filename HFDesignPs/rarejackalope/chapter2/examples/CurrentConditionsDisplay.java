@@ -1,15 +1,18 @@
 package rarejackalope.chapter2.examples;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class CurrentConditionsDisplay implements Observer, DisplayElement
 {
 	private float temperature;
 	private float humidity;
-	private Subject weatherData;
+	Observable observable;
 	
-	public CurrentConditionsDisplay(Subject weatherData) 
+	public CurrentConditionsDisplay(Observable observable) 
 	{
-		this.weatherData = weatherData;
-		weatherData.registerObserver(this);
+		this.observable = observable;
+		observable.addObserver(this);
 	}
 	
 	@Override
@@ -19,9 +22,14 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement
 		
 	}
 	@Override
-	public void update(float temp, float humidity, float pressure) {
-		temperature = temp;
-		this.humidity = humidity;
-		display();
+	public void update(Observable obs, Object arg) 
+	{   
+		if(obs instanceof WeatherData) 
+		{
+			WeatherData weatherData = (WeatherData)obs;
+			this.temperature = weatherData.getTemperature();
+			this.humidity = weatherData.getHumidity();
+			display();			
+		}
 	}
 }

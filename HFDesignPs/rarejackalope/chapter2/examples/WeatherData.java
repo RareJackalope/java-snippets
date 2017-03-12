@@ -1,52 +1,37 @@
 package rarejackalope.chapter2.examples;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class WeatherData implements Subject
+public class WeatherData extends Observable
 {	
-	private ArrayList observers;
 	private float temperature;
 	private float humidity;
 	private float pressure;
 	
-	public WeatherData()
-	{
-		observers = new ArrayList();
-	}
+	public WeatherData() { }
 	
 	public void measurementsChanged()
 	{
-		notifyObserver();
+		setChanged();
+		notifyObservers();
 	}
 
-	@Override
-	public void registerObserver(Observer o) 
+	public float getTemperature()
 	{
-		observers.add(o);
-		
-	}
-
-	@Override
-	public void removeObserver(Observer o) 
-	{
-		int i = observers.indexOf(o);
-		if(i >= 0)
-		{
-			observers.remove(i);
-		}
-		
-	}
-
-	@Override
-	public void notifyObserver() 
-	{
-		for(int i = 0; i < observers.size();i++)
-		{
-			Observer observer = (Observer)observers.get(i);
-			observer.update(temperature, humidity, pressure);
-		}
+		return temperature;
 	}
 	
+	public float getHumidity() 
+	{
+		return humidity;
+	}
+
+	public float getPressure() 
+	{
+		return pressure;
+	}
+
 	public void setMeasurements(float temperature, float humidity, float pressure)
 	{
 		this.temperature = temperature;
@@ -54,7 +39,6 @@ public class WeatherData implements Subject
 		this.humidity = humidity;
 		measurementsChanged();
 	}
-	//Other Weatherdata methods below.
 		
 }
 	
