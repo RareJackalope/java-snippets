@@ -5,10 +5,21 @@ public class ChocBoiler
 	private boolean empty;
 	private boolean boiled;
 	
-	public ChocBoiler()
+	private static ChocBoiler uniqueBoiler;
+	
+	private ChocBoiler()
 	{
 		this.empty = true;
 		this.boiled = false;
+	}
+	
+	public static ChocBoiler getInstance()
+	{
+		if(uniqueBoiler == null)
+		{
+			uniqueBoiler = new ChocBoiler();
+		}
+		return uniqueBoiler;
 	}
 	
 	public void fill()
