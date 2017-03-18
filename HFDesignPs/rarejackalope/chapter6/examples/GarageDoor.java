@@ -16,22 +16,22 @@ public class GarageDoor
 		}
 	}
 	
-	public GarageDoor getInstance()
+	public static GarageDoor getInstance()
 	{
 		return thisGarageDoor;
 	}
 	
-	private void up() 
+	public void up() 
 	{
 		DoorState.IsUp.currentState = true;
 	}
 	
-	private void down() {
+	public void down() {
 		DoorState.IsDown.currentState = true;
 
 	}
 	
-	private void stop() {
+	public void stop() {
 		if(doorInBetweenClosedAndOpen())
 		{
 			DoorState.IsBetween.currentState = true;
@@ -42,12 +42,12 @@ public class GarageDoor
 		return !DoorState.IsUp.currentState && !DoorState.IsDown.currentState;
 	}
 	
-	private void lightOn() throws LightAlreadyOnException 
+	public void lightOn() throws LightAlreadyOnException 
 	{
 		garageLight.on();
 	}
 	
-	private void lightOff() throws LightAlreadyOffException 
+	public void lightOff() throws LightAlreadyOffException 
 	{
 		garageLight.off();
 	}
