@@ -14,7 +14,7 @@ public class LightOnCommand implements Command
 		try {
 			light.on();
 		} catch (LightAlreadyOnException e) {
-			e.getMessage();
+			System.out.println(e);
 		}
 	}
 
